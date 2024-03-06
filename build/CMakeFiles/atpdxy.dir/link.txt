@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -shared -Wl,-soname,libatpdxy.so -o ../lib/libatpdxy.so CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o 
