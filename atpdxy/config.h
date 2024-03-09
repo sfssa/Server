@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <list>
+#include <functional>
 #include "log.h"
 // 配置系统原则：约定优于配置（创建的优于从文件读取的）
 namespace atpdxy
@@ -294,6 +295,9 @@ public:
     // 配置类的智能指针
     typedef std::shared_ptr<Config> ptr;
 
+    // 配置变更回调函数
+    typedef std::function<void (const T& old_value, const T& new_value)> onConfigChanged;
+
     // 构造函数
     Config(const std::string& name, const T& default_value, const std::string& description = "")
         :ConfigBase(name, description)
@@ -340,13 +344,50 @@ public:
 
     // 设置和获得配置值的函数
     const T getValue() const { return m_val; }
-    void setValue(const T& val) { m_val = val; } 
+
+    void setValue(const T& val) 
+    { 
+        // 原值和新值有没有变化
+        if(val == m_val)
+        {
+            return;
+        }
+        for(auto& i : m_cbs)
+        {
+            i.second(m_val, val);
+        }
+        m_val = val;
+    } 
 
     // 获得配置的类型
     std::string getTypeName() const override { return typeid(T).name(); }
+
+    void addListener(uint64_t key, onConfigChanged cb)
+    {   
+        m_cbs[key] = cb;
+    }
+
+    void delListener(uint64_t key)
+    {
+        m_cbs.erase(key);
+    }
+
+    onConfigChanged getListener(uint64_t key)
+    {
+        auto it = m_cbs.find(key);
+        return it == m_cbs.end() ? nullptr : it->second;
+    }
+
+    void clearListener()
+    {
+        m_cbs.clear();
+    }
 private:
     // 配置的值
     T m_val;
+
+    // 回调变更函数组，key要求唯一，一般用哈希值
+    std::map<uint64_t, onConfigChanged> m_cbs;
 };
 
 // 配置管理类

@@ -99,11 +99,16 @@ public:
     std::string toString() const 
     {
         std::stringstream ss;
-        ss << "[Person name=]" << m_name
+        ss << "[Person name=" << m_name
             << " age=" << m_age
             << " sex=" << m_sex
             << "]";
         return ss.str();
+    }
+
+    bool operator==(const Person& p) const
+    {
+        return m_name == p.m_name && m_age == p.m_age && m_sex == p.m_sex;
     }
 
     std::string m_name;
@@ -160,6 +165,11 @@ void test_class()
         } \
         LOG_INFO(LOG_ROOT()) << prefix << ": " << ": size=" <<m.size(); \
     }
+
+    g_person->addListener(10, [](const Person& old_value, const Person& new_value){
+        LOG_INFO(LOG_ROOT()) << "old_value: " << old_value.toString() << " new_value: " << new_value.toString();
+    });
+
     XX_PM(g_person_map, "class.map before");
     LOG_INFO(LOG_ROOT()) << "before:" << g_person_map_vec->toString();
     YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/log.yml");
