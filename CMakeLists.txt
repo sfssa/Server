@@ -15,6 +15,7 @@ set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++11 -Wall -Wno-depre
 set(LIB_SRC
     atpdxy/log.cpp
     atpdxy/util.cpp
+    atpdxy/config.cpp
     )
 
 # 创建共享库
@@ -22,12 +23,14 @@ add_library(${PROJECT_NAME} SHARED ${LIB_SRC})
 
 # 创建可执行文件
 add_executable(test_log ${PROJECT_SOURCE_DIR}/tests/test_log.cpp)
-
 # 添加依赖项
 add_dependencies(test_log ${PROJECT_NAME})
-
 # 链接库文件
-target_link_libraries(test_log ${PROJECT_NAME})
+target_link_libraries(test_log ${PROJECT_NAME} yaml-cpp)
+
+add_executable(test_config ${PROJECT_SOURCE_DIR}/tests/test_config.cpp)
+add_dependencies(test_config ${PROJECT_NAME})
+target_link_libraries(test_config ${PROJECT_NAME} yaml-cpp)
 
 # 指定输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

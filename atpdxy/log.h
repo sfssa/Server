@@ -24,6 +24,7 @@
 #include <iostream>
 #include <fstream>
 #include "singleton.h"
+#include "util.h"
 
 #define LOG(logger, level) \
     if(logger->getLevel() <= level) \
@@ -46,6 +47,8 @@
 #define LOG_FMT_WARN(logger, fmt, ...) LOG_FMT(logger, atpdxy::LogLevel::WARN, fmt, __VA_ARGS__)
 #define LOG_FMT_ERROR(logger, fmt, ...) LOG_FMT(logger, atpdxy::LogLevel::ERROR, fmt, __VA_ARGS__)
 #define LOG_FMT_FATAL(logger, fmt, ...) LOG_FMT(logger, atpdxy::LogLevel::FATAL, fmt, __VA_ARGS__)
+
+#define LOG_ROOT() atpdxy::LoggerMgr::GetInstance()->getRoot()
 
 namespace atpdxy
 {
@@ -80,7 +83,7 @@ public:
     // 构造函数，对日志事件进行初始化
     LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const char* file, int32_t line, uint32_t elapse, uint32_t threadId, uint32_t fiberId, uint64_t time);
 
-    // 返回私有变量
+    // 返回私有变量 
     const char* getFile() const { return m_file; }
     int32_t getLine() const { return m_line; }
     uint32_t getElapse() const { return m_elapse; }
@@ -322,6 +325,8 @@ public:
 
     // 初始化（可以从配置文件读取）
     void init();
+
+    Logger::ptr getRoot() const { return m_root; }
 private:
     // 名字和日志器的映射
     std::map<std::string, Logger::ptr> m_loggers;
@@ -331,4 +336,5 @@ private:
 };
 
 typedef atpdxy::Singleton<LoggerManager> LoggerMgr;
+
 }

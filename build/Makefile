@@ -190,6 +190,43 @@ test_log/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/build
 .PHONY : test_log/fast
 
+#=============================================================================
+# Target rules for targets named test_config
+
+# Build rule for target.
+test_config: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_config
+.PHONY : test_config
+
+# fast build rule for target.
+test_config/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
+.PHONY : test_config/fast
+
+atpdxy/config.o: atpdxy/config.cpp.o
+.PHONY : atpdxy/config.o
+
+# target to build an object file
+atpdxy/config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o
+.PHONY : atpdxy/config.cpp.o
+
+atpdxy/config.i: atpdxy/config.cpp.i
+.PHONY : atpdxy/config.i
+
+# target to preprocess a source file
+atpdxy/config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/config.cpp.i
+.PHONY : atpdxy/config.cpp.i
+
+atpdxy/config.s: atpdxy/config.cpp.s
+.PHONY : atpdxy/config.s
+
+# target to generate assembly for a file
+atpdxy/config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/config.cpp.s
+.PHONY : atpdxy/config.cpp.s
+
 atpdxy/log.o: atpdxy/log.cpp.o
 .PHONY : atpdxy/log.o
 
@@ -238,6 +275,30 @@ atpdxy/util.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/util.cpp.s
 .PHONY : atpdxy/util.cpp.s
 
+tests/test_config.o: tests/test_config.cpp.o
+.PHONY : tests/test_config.o
+
+# target to build an object file
+tests/test_config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cpp.o
+.PHONY : tests/test_config.cpp.o
+
+tests/test_config.i: tests/test_config.cpp.i
+.PHONY : tests/test_config.i
+
+# target to preprocess a source file
+tests/test_config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cpp.i
+.PHONY : tests/test_config.cpp.i
+
+tests/test_config.s: tests/test_config.cpp.s
+.PHONY : tests/test_config.s
+
+# target to generate assembly for a file
+tests/test_config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cpp.s
+.PHONY : tests/test_config.cpp.s
+
 tests/test_log.o: tests/test_log.cpp.o
 .PHONY : tests/test_log.o
 
@@ -275,13 +336,20 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... atpdxy"
+	@echo "... test_config"
 	@echo "... test_log"
+	@echo "... atpdxy/config.o"
+	@echo "... atpdxy/config.i"
+	@echo "... atpdxy/config.s"
 	@echo "... atpdxy/log.o"
 	@echo "... atpdxy/log.i"
 	@echo "... atpdxy/log.s"
 	@echo "... atpdxy/util.o"
 	@echo "... atpdxy/util.i"
 	@echo "... atpdxy/util.s"
+	@echo "... tests/test_config.o"
+	@echo "... tests/test_config.i"
+	@echo "... tests/test_config.s"
 	@echo "... tests/test_log.o"
 	@echo "... tests/test_log.i"
 	@echo "... tests/test_log.s"

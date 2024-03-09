@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "../lib/libatpdxy.pdb"
   "../lib/libatpdxy.so"
+  "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o"
+  "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o.d"
   "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o"
   "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o.d"
   "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o"

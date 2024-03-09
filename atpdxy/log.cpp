@@ -6,21 +6,21 @@ const char* LogLevel::ToString(LogLevel::Level level)
 {
     switch(level)
     {
-#define XX(name) \
-    case LogLevel::name: \
-        return #name; \
-        break;
+    #define XX(name) \
+        case LogLevel::name: \
+            return #name; \
+            break;
 
     XX(DEBUG);
     XX(INFO);
     XX(WARN);
     XX(ERROR);
     XX(FATAL);
-#undef XX
+    
+    #undef XX
     default:
         return "UNKNOW";
     }
-    return "UNKNOW";
 }
 
 LogEventWrap::LogEventWrap(LogEvent::ptr e)
