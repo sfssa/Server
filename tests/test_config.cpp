@@ -1,7 +1,7 @@
 #include "../atpdxy/config.h"
 #include "../atpdxy/log.h"
 #include <yaml-cpp/yaml.h>
-
+#if 1
 // 创建了两个配置system.port和system.value，查询时通过fromString将m_val修改成读取到的值
 atpdxy::Config<int>::ptr g_int_value_config = atpdxy::ConfigManager::Lookup("system.port", (int)8080, "system port");
 atpdxy::Config<float>::ptr g_int_valuex_config = atpdxy::ConfigManager::Lookup("system.port", (float)8080, "system port");
@@ -43,7 +43,7 @@ void print_yaml(const YAML::Node node, int level)
 
 void test_yaml()
 {
-    YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/test.yml");
     print_yaml(root, 0);
     LOG_INFO(LOG_ROOT()) << root.Scalar();
 }
@@ -78,7 +78,7 @@ void test_config()
     XX_M(g_int_map_config, int_map, before);
     XX_M(g_int_umap_config, int_umap, before);
 
-    YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/test.yml");
     atpdxy::ConfigManager::LoadFromYaml(root);
 
     LOG_INFO(LOG_ROOT()) << "after: " << g_int_value_config->getValue();
@@ -91,6 +91,8 @@ void test_config()
     XX_M(g_int_map_config, int_map, after);
     XX_M(g_int_umap_config, int_umap, after);
 }
+#endif 
+
 class Person
 {
 public:
@@ -179,9 +181,27 @@ void test_class()
     LOG_INFO(LOG_ROOT()) << "after:" << g_person_map_vec->toString();
 }
 
+void test_log()
+{
+    static atpdxy::Logger::ptr system_log = LOG_NAME("system");
+    LOG_INFO(system_log) << "hello system" << std::endl;
+    std::cout << atpdxy::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/logs.yml");
+    atpdxy::ConfigManager::LoadFromYaml(root);
+    std::cout << "======================================" << std::endl;
+    std::cout << atpdxy::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    std::cout << "======================================" << std::endl;
+    std::cout << root << std::endl;
+    LOG_INFO(system_log) << "hello system" << std::endl;
+
+    system_log->setFormatter("%d - %m%n");
+    LOG_INFO(system_log) << "hello system" << std::endl;
+}
+
 int main()
 {
-    test_class();
+    test_log();
+    // test_class();
     // test_config();
     // test_yaml();
     return 0;

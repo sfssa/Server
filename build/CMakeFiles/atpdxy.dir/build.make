@@ -76,43 +76,43 @@ CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: CMakeFiles/atpdxy.dir/flags.make
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/log.cpp
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: CMakeFiles/atpdxy.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/log.cpp
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/log.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/log.cpp
 
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/atpdxy.dir/atpdxy/log.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/log.cpp > CMakeFiles/atpdxy.dir/atpdxy/log.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/log.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/log.cpp > CMakeFiles/atpdxy.dir/atpdxy/log.cpp.i
 
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/atpdxy.dir/atpdxy/log.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/log.cpp -o CMakeFiles/atpdxy.dir/atpdxy/log.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/log.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/log.cpp -o CMakeFiles/atpdxy.dir/atpdxy/log.cpp.s
 
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: CMakeFiles/atpdxy.dir/flags.make
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: ../atpdxy/util.cpp
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: CMakeFiles/atpdxy.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/util.cpp
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/util.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/util.cpp
 
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/atpdxy.dir/atpdxy/util.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/util.cpp > CMakeFiles/atpdxy.dir/atpdxy/util.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/util.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/util.cpp > CMakeFiles/atpdxy.dir/atpdxy/util.cpp.i
 
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/atpdxy.dir/atpdxy/util.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/util.cpp -o CMakeFiles/atpdxy.dir/atpdxy/util.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/util.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/util.cpp -o CMakeFiles/atpdxy.dir/atpdxy/util.cpp.s
 
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: CMakeFiles/atpdxy.dir/flags.make
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/config.cpp
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: CMakeFiles/atpdxy.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/config.cpp
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/config.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/config.cpp
 
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/atpdxy.dir/atpdxy/config.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/config.cpp > CMakeFiles/atpdxy.dir/atpdxy/config.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/config.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/config.cpp > CMakeFiles/atpdxy.dir/atpdxy/config.cpp.i
 
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/atpdxy.dir/atpdxy/config.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/config.cpp -o CMakeFiles/atpdxy.dir/atpdxy/config.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/config.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/config.cpp -o CMakeFiles/atpdxy.dir/atpdxy/config.cpp.s
 
 # Object files for target atpdxy
 atpdxy_OBJECTS = \

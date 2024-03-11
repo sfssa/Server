@@ -2,13 +2,10 @@
 
 namespace atpdxy
 {
-// 静态成员的初始化
-ConfigManager::ConfigMap ConfigManager::s_datas;
-
 ConfigBase::ptr ConfigManager::LookupBase(const std::string& name)
 {
-    auto it = s_datas.find(name);
-    return it == s_datas.end() ? nullptr : it->second;
+    auto it = GetDatas().find(name);
+    return it == GetDatas().end() ? nullptr : it->second;
 }
 
 // 将所有属性值存储到list中，格式转换如下：

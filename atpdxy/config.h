@@ -401,8 +401,8 @@ public:
     template <class T>
     static typename Config<T>::ptr Lookup(const std::string& name, const T& default_value, const std::string& description = "")
     {
-        auto it = s_datas.find(name);
-        if(it != s_datas.end())
+        auto it = GetDatas().find(name);
+        if(it != GetDatas().end())
         {
             auto tmp = std::dynamic_pointer_cast<Config<T>>(it->second);
             if(tmp)
@@ -428,7 +428,7 @@ public:
         }
         // 新建一个配置项并存入静态map中
         typename Config<T>::ptr v(new Config<T>(name, default_value, description));
-        s_datas[name] = v;
+        GetDatas()[name] = v;
         return v;
     }
 
@@ -436,8 +436,8 @@ public:
     template <class T>
     static typename Config<T>::ptr Lookup(const std::string& name)
     {
-        auto it = s_datas.find(name);
-        if(it == s_datas.end())
+        auto it = GetDatas().find(name);
+        if(it == GetDatas().end())
         {
             return nullptr;
         }
@@ -451,6 +451,10 @@ public:
     static ConfigBase::ptr LookupBase(const std::string& name);
 private:
     // 配置名-配置的智能指针
-    static ConfigMap s_datas;
+    static ConfigMap& GetDatas()
+    {
+        static ConfigMap s_datas;
+        return s_datas;
+    }
 };
 }

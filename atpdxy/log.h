@@ -49,9 +49,10 @@
 #define LOG_FMT_FATAL(logger, fmt, ...) LOG_FMT(logger, atpdxy::LogLevel::FATAL, fmt, __VA_ARGS__)
 
 #define LOG_ROOT() atpdxy::LoggerMgr::GetInstance()->getRoot()
-
+#define LOG_NAME(name) atpdxy::LoggerMgr::GetInstance()->getLogger(name)
 namespace atpdxy
 {
+class LoggerManager;
 // 向前声明Logger类
 class Logger;
 
@@ -71,6 +72,9 @@ public:
 
     // 将日志级别转换成string类型
     static const char* ToString(LogLevel::Level level);
+
+    // 将string转换成enum
+    static LogLevel::Level FromString(const std::string& str);
 };
 
 // 日志事件
@@ -181,17 +185,25 @@ public:
     // %m 消息%p 日志级别%r 累计毫秒数%c 日志名称%t 线程id%n 换行%d 时间%f 文件名%l 行号%T 制表符%F 协程id%N 线程名称
     // 默认格式 "%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
     void init();
+
+    bool isError() const { return m_error; }
+
+    const std::string getPattern() const { return m_pattern; }
 private:
     // 格式
     std::string m_pattern;
 
     // 存放所有format的数组
     std::vector<FormatItem::ptr> m_items;
+
+    // 判断格式是否出错
+    bool m_error = false;
 };
 
 // 日志输出目标
 class LogAppender
 {
+friend class Logger;
 public:
     // 日志输出模板的智能指针
     typedef std::shared_ptr<LogAppender> ptr;
@@ -203,7 +215,7 @@ public:
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
 
     // 设置输出格式
-    void setFormatter(LogFormatter::ptr val) { m_formatter = val; }
+    void setFormatter(LogFormatter::ptr val);
 
     // 获得输出格式
     LogFormatter::ptr getFormatter() const { return m_formatter; }
@@ -213,17 +225,23 @@ public:
 
     // 获得输出器日志级别
     LogLevel::Level  getLevel() const { return m_level; }
+
+    virtual std::string toYamlString() = 0;
 protected:
     // 输出目标的级别
     LogLevel::Level m_level = LogLevel::DEBUG;
 
     // 输出目标的格式
     LogFormatter::ptr m_formatter;
+
+    // 是否有自己的格式
+    bool m_hasFormatter = false;
 };
 
 // 日志输出器
 class Logger : public std::enable_shared_from_this<Logger>
 {
+friend class LoggerManager;
 public:
     // 定义日志输出器的智能指针
     typedef std::shared_ptr<Logger> ptr;
@@ -255,6 +273,9 @@ public:
     // 删除输出目标
     void delAppender(LogAppender::ptr appender);
 
+    // 清空appenders
+    void clearAppenders();
+
     // 获取日志器级别
     LogLevel::Level getLevel() const { return m_level; }
 
@@ -263,6 +284,13 @@ public:
 
     // 返回日志器名称
     const std::string getName() const { return m_name; }
+
+    // 设置日志器的输出格式
+    void setFormatter(LogFormatter::ptr val);
+    void setFormatter(const std::string& val);
+    LogFormatter::ptr getFormatter();
+
+    std::string toYamlString();
 private:
     // 日志器的输出目标
     std::list<LogAppender::ptr> m_appenders;
@@ -275,17 +303,23 @@ private:
 
     // 日志器的默认输出格式
     LogFormatter::ptr m_formatter;
+
+    // 主日志器
+    Logger::ptr m_root;
 };
 
 // 控制台输出目标
 class StdoutLogAppender : public LogAppender
 {
+
 public:
     // 控制台输出目标智能指针
     typedef std::shared_ptr<StdoutLogAppender> ptr;
 
     // 向控制台打印日志
     void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) override;
+
+    std::string toYamlString() override;
 private:
 
 };
@@ -305,6 +339,8 @@ public:
 
     // 重新打开文件
     bool reopen();
+
+    std::string toYamlString() override;
 private:
     // 文件输出目标名字
     std::string m_filename;
@@ -327,6 +363,8 @@ public:
     void init();
 
     Logger::ptr getRoot() const { return m_root; }
+
+    std::string toYamlString();
 private:
     // 名字和日志器的映射
     std::map<std::string, Logger::ptr> m_loggers;
