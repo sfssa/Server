@@ -1,3 +1,13 @@
+/*
+ * @Author: sfssa 1664549131@qq.com
+ * @Date: 2024-03-11 17:02:43
+ * @LastEditors: sfssa 1664549131@qq.com
+ * @LastEditTime: 2024-03-11 17:12:58
+ * @FilePath: \projects\C++\thread.h
+ * @Description: Do not edit
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 #pragma once
 
 #include <thread>
@@ -44,10 +54,10 @@ private:
     Thread& operator=(const Thread&) = delete;
     static void* run(void* arg);
 private:
-    // 线程id
+    // 线程标识符：线程的id
     pid_t m_id = -1;
 
-    // 线程id
+    // 线程控制块指针
     pthread_t m_thread = 0;
     
     // 回调函数

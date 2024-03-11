@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o.d"
   "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o"
   "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o.d"
+  "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o"
+  "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o.d"
   "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o"
   "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o.d"
 )

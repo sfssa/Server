@@ -19,6 +19,7 @@ set(LIB_SRC
     atpdxy/log.cpp
     atpdxy/util.cpp
     atpdxy/config.cpp
+    atpdxy/thread.cpp
     )
 
 # 创建共享库
@@ -26,18 +27,28 @@ add_library(${PROJECT_NAME} SHARED ${LIB_SRC})
 
 force_redefine_file_macro_for_sources(atpdxy)
 
+set(LIB_LIB
+    atpdxy
+    pthread
+    yaml-cpp)
 # 创建可执行文件
 add_executable(test_log ${PROJECT_SOURCE_DIR}/tests/test_log.cpp)
 # 添加依赖项
 add_dependencies(test_log ${PROJECT_NAME})
+# 设置__FILE__
 force_redefine_file_macro_for_sources(test_log)
 # 链接库文件
-target_link_libraries(test_log ${PROJECT_NAME} yaml-cpp)
+target_link_libraries(test_log ${LIB_LIB})
 
 add_executable(test_config ${PROJECT_SOURCE_DIR}/tests/test_config.cpp)
 add_dependencies(test_config ${PROJECT_NAME})
 force_redefine_file_macro_for_sources(test_config)
-target_link_libraries(test_config ${PROJECT_NAME} yaml-cpp)
+target_link_libraries(test_config ${LIB_LIB})
+
+add_executable(test_thread ${PROJECT_SOURCE_DIR}/tests/test_thread.cpp)
+add_dependencies(test_thread ${PROJECT_NAME})
+force_redefine_file_macro_for_sources(test_thread)
+target_link_libraries(test_thread ${LIB_LIB})
 
 # 指定输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

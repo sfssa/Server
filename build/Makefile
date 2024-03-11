@@ -203,6 +203,19 @@ test_config/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
 .PHONY : test_config/fast
 
+#=============================================================================
+# Target rules for targets named test_thread
+
+# Build rule for target.
+test_thread: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_thread
+.PHONY : test_thread
+
+# fast build rule for target.
+test_thread/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/build
+.PHONY : test_thread/fast
+
 atpdxy/config.o: atpdxy/config.cpp.o
 .PHONY : atpdxy/config.o
 
@@ -250,6 +263,30 @@ atpdxy/log.s: atpdxy/log.cpp.s
 atpdxy/log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/log.cpp.s
 .PHONY : atpdxy/log.cpp.s
+
+atpdxy/thread.o: atpdxy/thread.cpp.o
+.PHONY : atpdxy/thread.o
+
+# target to build an object file
+atpdxy/thread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o
+.PHONY : atpdxy/thread.cpp.o
+
+atpdxy/thread.i: atpdxy/thread.cpp.i
+.PHONY : atpdxy/thread.i
+
+# target to preprocess a source file
+atpdxy/thread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.i
+.PHONY : atpdxy/thread.cpp.i
+
+atpdxy/thread.s: atpdxy/thread.cpp.s
+.PHONY : atpdxy/thread.s
+
+# target to generate assembly for a file
+atpdxy/thread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.s
+.PHONY : atpdxy/thread.cpp.s
 
 atpdxy/util.o: atpdxy/util.cpp.o
 .PHONY : atpdxy/util.o
@@ -323,6 +360,30 @@ tests/test_log.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test_log.cpp.s
 .PHONY : tests/test_log.cpp.s
 
+tests/test_thread.o: tests/test_thread.cpp.o
+.PHONY : tests/test_thread.o
+
+# target to build an object file
+tests/test_thread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cpp.o
+.PHONY : tests/test_thread.cpp.o
+
+tests/test_thread.i: tests/test_thread.cpp.i
+.PHONY : tests/test_thread.i
+
+# target to preprocess a source file
+tests/test_thread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cpp.i
+.PHONY : tests/test_thread.cpp.i
+
+tests/test_thread.s: tests/test_thread.cpp.s
+.PHONY : tests/test_thread.s
+
+# target to generate assembly for a file
+tests/test_thread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cpp.s
+.PHONY : tests/test_thread.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -338,12 +399,16 @@ help:
 	@echo "... atpdxy"
 	@echo "... test_config"
 	@echo "... test_log"
+	@echo "... test_thread"
 	@echo "... atpdxy/config.o"
 	@echo "... atpdxy/config.i"
 	@echo "... atpdxy/config.s"
 	@echo "... atpdxy/log.o"
 	@echo "... atpdxy/log.i"
 	@echo "... atpdxy/log.s"
+	@echo "... atpdxy/thread.o"
+	@echo "... atpdxy/thread.i"
+	@echo "... atpdxy/thread.s"
 	@echo "... atpdxy/util.o"
 	@echo "... atpdxy/util.i"
 	@echo "... atpdxy/util.s"
@@ -353,6 +418,9 @@ help:
 	@echo "... tests/test_log.o"
 	@echo "... tests/test_log.i"
 	@echo "... tests/test_log.s"
+	@echo "... tests/test_thread.o"
+	@echo "... tests/test_thread.i"
+	@echo "... tests/test_thread.s"
 .PHONY : help
 
 

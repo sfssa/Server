@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/atpdxy/GitHub/Server/atpdxy/config.cpp" "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o.d"
   "/home/atpdxy/GitHub/Server/atpdxy/log.cpp" "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/thread.cpp" "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o.d"
   "/home/atpdxy/GitHub/Server/atpdxy/util.cpp" "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o.d"
   )
 
