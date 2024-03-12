@@ -42,6 +42,8 @@ Thread::Thread(std::function<void()> cb, const std::string& name)
         LOG_ERROR(g_logger) << "pthread_create thread fail, rt = " << rt << " name = " << name;
         throw std::logic_error("pthread_create error");
     }
+    // 等待线程准备就绪
+    m_semaphore.wait();
 }
 
 Thread::~Thread()
@@ -75,6 +77,7 @@ void* Thread::run(void* arg)
     pthread_setname_np(pthread_self(), thread->m_name.substr(0, 15).c_str());
     std::function<void()> cb;
     cb.swap(thread->m_cb);
+    thread->m_semaphore.notify();
     cb();
     return 0;
 }

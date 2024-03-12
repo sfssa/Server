@@ -20,6 +20,7 @@ set(LIB_SRC
     atpdxy/util.cpp
     atpdxy/config.cpp
     atpdxy/thread.cpp
+    atpdxy/mutex.cpp
     )
 
 # 创建共享库

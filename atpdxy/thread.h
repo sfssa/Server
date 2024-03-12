@@ -15,6 +15,7 @@
 #include <memory>
 #include <string>
 #include <pthread.h>
+#include "mutex.h"
 
 namespace atpdxy
 {
@@ -65,6 +66,8 @@ private:
 
     // 线程名
     std::string m_name;
-};
 
+    // 信号量
+    Semaphore m_semaphore;
+};
 }

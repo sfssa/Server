@@ -25,6 +25,7 @@
 #include <fstream>
 #include "singleton.h"
 #include "util.h"
+#include "mutex.h"
 
 #define LOG(logger, level) \
     if(logger->getLevel() <= level) \
@@ -207,7 +208,7 @@ friend class Logger;
 public:
     // 日志输出模板的智能指针
     typedef std::shared_ptr<LogAppender> ptr;
-
+    typedef Spinlock MutexType;
     // 虚析构函数，用于释放所有的资源
     virtual ~LogAppender() {}
 
@@ -218,7 +219,7 @@ public:
     void setFormatter(LogFormatter::ptr val);
 
     // 获得输出格式
-    LogFormatter::ptr getFormatter() const { return m_formatter; }
+    LogFormatter::ptr getFormatter();
 
     // 设置输出器日志级别
     void setLevel(LogLevel::Level  val) { m_level = val; }
@@ -236,6 +237,9 @@ protected:
 
     // 是否有自己的格式
     bool m_hasFormatter = false;
+
+    // 互斥量
+    MutexType m_mutex;
 };
 
 // 日志输出器
@@ -245,7 +249,7 @@ friend class LoggerManager;
 public:
     // 定义日志输出器的智能指针
     typedef std::shared_ptr<Logger> ptr;
-
+    typedef Spinlock MutexType;
     // 构造函数，默认日志器的名称是root
     Logger(const std::string& name = "root");
 
@@ -306,6 +310,9 @@ private:
 
     // 主日志器
     Logger::ptr m_root;
+
+    // 互斥量
+    MutexType m_mutex;
 };
 
 // 控制台输出目标
@@ -347,12 +354,16 @@ private:
 
     // 输出流
     std::ofstream m_filestream;
+
+    // 上次打开时间
+    uint64_t m_lastTime = 0;
 };
 
 // 日志管理器
 class LoggerManager
 {
 public:
+    typedef Spinlock MutexType;
     // 根据日志器名称返回日志器
     Logger::ptr getLogger(const std::string& name);
 
@@ -371,6 +382,9 @@ private:
 
     // 默认主logger
     Logger::ptr m_root;
+
+    // 互斥量
+    MutexType m_mutex;
 };
 
 typedef atpdxy::Singleton<LoggerManager> LoggerMgr;

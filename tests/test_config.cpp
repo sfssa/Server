@@ -168,7 +168,7 @@ void test_class()
         LOG_INFO(LOG_ROOT()) << prefix << ": " << ": size=" <<m.size(); \
     }
 
-    g_person->addListener(10, [](const Person& old_value, const Person& new_value){
+    g_person->addListener([](const Person& old_value, const Person& new_value){
         LOG_INFO(LOG_ROOT()) << "old_value: " << old_value.toString() << " new_value: " << new_value.toString();
     });
 
@@ -186,7 +186,7 @@ void test_log()
     static atpdxy::Logger::ptr system_log = LOG_NAME("system");
     LOG_INFO(system_log) << "hello system" << std::endl;
     std::cout << atpdxy::LoggerMgr::GetInstance()->toYamlString() << std::endl;
-    YAML::Node root = YAML::LoadFile("/home/atpdxy/GitHub/Server/bin/conf/logs.yml");
+    YAML::Node root = YAML::LoadFile("/home/atpdxy/Github/Server/bin/conf/logs.yml");
     atpdxy::ConfigManager::LoadFromYaml(root);
     std::cout << "======================================" << std::endl;
     std::cout << atpdxy::LoggerMgr::GetInstance()->toYamlString() << std::endl;
@@ -204,5 +204,12 @@ int main()
     // test_class();
     // test_config();
     // test_yaml();
+
+    atpdxy::ConfigManager::Visit([](atpdxy::ConfigBase::ptr var){
+        LOG_INFO(LOG_ROOT()) << "name: " << var->getName()
+            << " description: " << var->getDescription()
+            << " typename " << var->getTypeName()
+            << " value: " << var->toString();
+    });
     return 0;
 }

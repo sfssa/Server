@@ -4,6 +4,7 @@ namespace atpdxy
 {
 ConfigBase::ptr ConfigManager::LookupBase(const std::string& name)
 {
+    RWMutexType::ReadLock lock(GetMutex());
     auto it = GetDatas().find(name);
     return it == GetDatas().end() ? nullptr : it->second;
 }
@@ -55,6 +56,16 @@ void ConfigManager::LoadFromYaml(const YAML::Node& root)
                 var->fromString(ss.str());
             }
         }
+    }
+}
+
+void ConfigManager::Visit(std::function<void(ConfigBase::ptr)> cb)
+{
+    RWMutexType::ReadLock lock(GetMutex());
+    ConfigMap& m = GetDatas();
+    for(auto it = m.begin(); it != m.end(); ++it)
+    {
+        cb(it->second);
     }
 }
 

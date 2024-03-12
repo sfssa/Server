@@ -14,6 +14,8 @@
 #include <list>
 #include <functional>
 #include "log.h"
+#include "mutex.h"
+
 // 配置系统原则：约定优于配置（创建的优于从文件读取的）
 namespace atpdxy
 {
@@ -292,6 +294,7 @@ template <class T, class FromStr = LexicalCast<std::string, T>, class ToStr = Le
 class Config : public ConfigBase
 {
 public:
+    typedef RWMutex RWMutexType;
     // 配置类的智能指针
     typedef std::shared_ptr<Config> ptr;
 
@@ -311,6 +314,7 @@ public:
     {
         try
         {   
+            RWMutexType::ReadLock lock(m_mutex);
             // return boost::lexical_cast<std::string>(m_val);
             // 创建临时对象，并调用临时对象的重载()
             return ToStr()(m_val);
@@ -343,43 +347,58 @@ public:
     }
 
     // 设置和获得配置值的函数
-    const T getValue() const { return m_val; }
+    const T getValue()  
+    { 
+        RWMutexType::ReadLock lock(m_mutex);
+        return m_val; 
+    }
 
     void setValue(const T& val) 
     { 
-        // 原值和新值有没有变化
-        if(val == m_val)
         {
-            return;
+            RWMutexType::ReadLock lock(m_mutex);
+            // 原值和新值有没有变化
+            if(val == m_val)
+            {
+                return;
+            }
+            for(auto& i : m_cbs)
+            {
+                i.second(m_val, val);
+            }
         }
-        for(auto& i : m_cbs)
-        {
-            i.second(m_val, val);
-        }
+        RWMutexType::WriteLock lock(m_mutex);
         m_val = val;
     } 
 
     // 获得配置的类型
     std::string getTypeName() const override { return typeid(T).name(); }
 
-    void addListener(uint64_t key, onConfigChanged cb)
+    uint64_t addListener(onConfigChanged cb)
     {   
-        m_cbs[key] = cb;
+        static uint64_t s_fun_id = 0;
+        RWMutexType::WriteLock lock(m_mutex);
+        ++s_fun_id;
+        m_cbs[s_fun_id] = cb;
+        return s_fun_id;
     }
 
     void delListener(uint64_t key)
     {
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }
 
     onConfigChanged getListener(uint64_t key)
     {
+        RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
         return it == m_cbs.end() ? nullptr : it->second;
     }
 
     void clearListener()
     {
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.clear();
     }
 private:
@@ -388,19 +407,23 @@ private:
 
     // 回调变更函数组，key要求唯一，一般用哈希值
     std::map<uint64_t, onConfigChanged> m_cbs;
+
+    // 读写锁
+    RWMutexType m_mutex;
 };
 
 // 配置管理类
 class ConfigManager
 {
 public:
-    // 
+    typedef RWMutex RWMutexType;
     typedef std::map<std::string, ConfigBase::ptr> ConfigMap;
 
     // 从静态成员中查找配置，有则返回，没有则创建
     template <class T>
     static typename Config<T>::ptr Lookup(const std::string& name, const T& default_value, const std::string& description = "")
     {
+        RWMutexType::WriteLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it != GetDatas().end())
         {
@@ -436,6 +459,7 @@ public:
     template <class T>
     static typename Config<T>::ptr Lookup(const std::string& name)
     {
+        RWMutexType::ReadLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it == GetDatas().end())
         {
@@ -449,12 +473,22 @@ public:
 
     // 查询静态map中是否有配置项，返回基类指针
     static ConfigBase::ptr LookupBase(const std::string& name);
+
+    // 返回定义了什么变量，返回map的内容
+    static void Visit(std::function<void(ConfigBase::ptr)> cb);
 private:
     // 配置名-配置的智能指针
     static ConfigMap& GetDatas()
     {
         static ConfigMap s_datas;
         return s_datas;
+    }
+
+    // 容器是static类型，保证用的时候已经初始化
+    static RWMutexType& GetMutex()
+    {
+        static RWMutexType s_mutex;
+        return s_mutex;
     }
 };
 }
