@@ -21,6 +21,7 @@ set(LIB_SRC
     atpdxy/config.cpp
     atpdxy/thread.cpp
     atpdxy/mutex.cpp
+    atpdxy/fiber.cpp
     )
 
 # 创建共享库
@@ -55,6 +56,11 @@ add_executable(test_util ${PROJECT_SOURCE_DIR}/tests/test_util.cpp)
 add_dependencies(test_util ${PROJECT_NAME})
 force_redefine_file_macro_for_sources(test_util)
 target_link_libraries(test_util ${LIB_LIB})
+
+add_executable(test_fiber ${PROJECT_SOURCE_DIR}/tests/test_fiber.cpp)
+add_dependencies(test_fiber ${PROJECT_NAME})
+force_redefine_file_macro_for_sources(test_fiber)
+target_link_libraries(test_fiber ${LIB_LIB})
 
 # 指定输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

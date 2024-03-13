@@ -8,6 +8,16 @@ CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o
  /home/atpdxy/Github/Server/atpdxy/mutex.h
  /home/atpdxy/Github/Server/atpdxy/singleton.h
  /home/atpdxy/Github/Server/atpdxy/util.h
+CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o
+ /home/atpdxy/Github/Server/atpdxy/config.h
+ /home/atpdxy/Github/Server/atpdxy/fiber.cpp
+ /home/atpdxy/Github/Server/atpdxy/fiber.h
+ /home/atpdxy/Github/Server/atpdxy/log.h
+ /home/atpdxy/Github/Server/atpdxy/macro.h
+ /home/atpdxy/Github/Server/atpdxy/mutex.h
+ /home/atpdxy/Github/Server/atpdxy/singleton.h
+ /home/atpdxy/Github/Server/atpdxy/thread.h
+ /home/atpdxy/Github/Server/atpdxy/util.h
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o
  /home/atpdxy/Github/Server/atpdxy/config.h
  /home/atpdxy/Github/Server/atpdxy/log.cpp
@@ -26,8 +36,12 @@ CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o
  /home/atpdxy/Github/Server/atpdxy/thread.h
  /home/atpdxy/Github/Server/atpdxy/util.h
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o
+ /home/atpdxy/Github/Server/atpdxy/config.h
+ /home/atpdxy/Github/Server/atpdxy/fiber.h
  /home/atpdxy/Github/Server/atpdxy/log.h
+ /home/atpdxy/Github/Server/atpdxy/macro.h
  /home/atpdxy/Github/Server/atpdxy/mutex.h
  /home/atpdxy/Github/Server/atpdxy/singleton.h
+ /home/atpdxy/Github/Server/atpdxy/thread.h
  /home/atpdxy/Github/Server/atpdxy/util.cpp
  /home/atpdxy/Github/Server/atpdxy/util.h

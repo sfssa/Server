@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/atpdxy/Github/Server/atpdxy/config.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o"
+  "/home/atpdxy/Github/Server/atpdxy/fiber.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o"
   "/home/atpdxy/Github/Server/atpdxy/log.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o"
   "/home/atpdxy/Github/Server/atpdxy/mutex.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/mutex.cpp.o"
   "/home/atpdxy/Github/Server/atpdxy/thread.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o"

@@ -18,3 +18,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/atpdxy.dir/atpdxy/mutex.cpp.o_DEFINES = __FILE__="atpdxy/mutex.cpp"
 
+# Custom defines: CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o_DEFINES = __FILE__="atpdxy/fiber.cpp"
+
