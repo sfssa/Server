@@ -51,6 +51,11 @@ add_dependencies(test_thread ${PROJECT_NAME})
 force_redefine_file_macro_for_sources(test_thread)
 target_link_libraries(test_thread ${LIB_LIB})
 
+add_executable(test_util ${PROJECT_SOURCE_DIR}/tests/test_util.cpp)
+add_dependencies(test_util ${PROJECT_NAME})
+force_redefine_file_macro_for_sources(test_util)
+target_link_libraries(test_util ${LIB_LIB})
+
 # 指定输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

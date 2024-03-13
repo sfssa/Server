@@ -25,6 +25,9 @@ CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o: ../atpdxy/thread.cpp
 CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o: ../atpdxy/thread.h
 CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o: ../atpdxy/util.h
 
+CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: ../atpdxy/log.h
+CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: ../atpdxy/mutex.h
+CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: ../atpdxy/singleton.h
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: ../atpdxy/util.cpp
 CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o: ../atpdxy/util.h
 

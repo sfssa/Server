@@ -5,4 +5,5 @@
 #include "singleton.h"
 #include "thread.h"
 #include "mutex.h"
+#include "macro.h"
 #include "util.h"
