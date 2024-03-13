@@ -11,7 +11,7 @@ void run_in_fiber()
     atpdxy::Fiber::YieldToHold();
 }
 
-int main()
+void test_fiber()
 {
     LOG_INFO(g_logger) << "main begin -1";
     {
@@ -25,5 +25,20 @@ int main()
         fiber->swapIn();
     }
     LOG_INFO(g_logger) << "main after end2";
+}
+
+int main()
+{
+    atpdxy::Thread::SetName("main");
+    std::vector<atpdxy::Thread::ptr> thrs;
+    for(int i = 0; i < 3; ++i)
+    {
+        thrs.push_back(atpdxy::Thread::ptr(new atpdxy::Thread(&test_fiber, "name_" + std::to_string(i))));
+    }
+
+    for(auto i : thrs)
+    {
+        i->join();
+    }
     return 0;
 }
