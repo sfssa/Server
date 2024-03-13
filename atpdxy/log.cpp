@@ -141,8 +141,7 @@ public:
 
     void format(std::ostream& os, Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override 
     {
-        // os << event->getThreadName();
-        os << "getThreadName";
+        os << event->getThreadName();
     }
 };
 
@@ -249,7 +248,9 @@ public:
     }
 };
 
-LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const char* file, int32_t line, uint32_t elapse, uint32_t threadId, uint32_t fiberId, uint64_t time)
+LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, 
+    const char* file, int32_t line, uint32_t elapse, uint32_t threadId, 
+    uint32_t fiberId, uint64_t time, const std::string& thread_name)
     :m_file(file)
     ,m_line(line)
     ,m_elapse(elapse)
@@ -258,6 +259,7 @@ LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const 
     ,m_time(time)
     ,m_logger(logger)
     ,m_level(level)
+    ,m_threadName(thread_name)
 {
 
 }

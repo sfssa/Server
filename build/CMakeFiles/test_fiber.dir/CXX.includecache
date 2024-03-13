@@ -107,6 +107,8 @@ util.h
 /home/atpdxy/Github/Server/atpdxy/util.h
 mutex.h
 /home/atpdxy/Github/Server/atpdxy/mutex.h
+thread.h
+/home/atpdxy/Github/Server/atpdxy/thread.h
 
 /home/atpdxy/Github/Server/atpdxy/macro.h
 string.h

@@ -6,6 +6,7 @@ CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/config.h
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/log.h
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/mutex.h
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/singleton.h
+CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/thread.h
 CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o: ../atpdxy/util.h
 
 CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o: ../atpdxy/config.h
@@ -23,6 +24,7 @@ CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/log.cpp
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/log.h
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/mutex.h
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/singleton.h
+CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/thread.h
 CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o: ../atpdxy/util.h
 
 CMakeFiles/atpdxy.dir/atpdxy/mutex.cpp.o: ../atpdxy/mutex.cpp

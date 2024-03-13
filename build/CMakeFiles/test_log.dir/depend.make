@@ -4,6 +4,7 @@
 CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../atpdxy/log.h
 CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../atpdxy/mutex.h
 CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../atpdxy/singleton.h
+CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../atpdxy/thread.h
 CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../atpdxy/util.h
 CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../tests/test_log.cpp
 

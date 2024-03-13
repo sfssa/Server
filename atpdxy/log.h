@@ -26,11 +26,12 @@
 #include "singleton.h"
 #include "util.h"
 #include "mutex.h"
+#include "thread.h"
 
 #define LOG(logger, level) \
     if(logger->getLevel() <= level) \
         atpdxy::LogEventWrap(atpdxy::LogEvent::ptr(new atpdxy::LogEvent(logger, level, __FILE__, __LINE__, 0, atpdxy::GetThreadId(), \
-            atpdxy::GetFiberId(), time(0)))).getSS()
+            atpdxy::GetFiberId(), time(0), atpdxy::Thread::GetName()))).getSS()
 
 #define LOG_DEBUG(logger) LOG(logger, atpdxy::LogLevel::DEBUG)
 #define LOG_INFO(logger) LOG(logger, atpdxy::LogLevel::INFO)
@@ -41,7 +42,7 @@
 #define LOG_FMT(logger, level, fmt, ...) \
     if(logger->getLevel() <= level) \
         atpdxy::LogEventWrap(atpdxy::LogEvent::ptr(new atpdxy::LogEvent(logger, level, __FILE__, __LINE__, 0, atpdxy::GetThreadId(), \
-            atpdxy::GetFiberId(), time(0)))).getEvent()->format(fmt, __VA_ARGS__)
+            atpdxy::GetFiberId(), time(0), atpdxy::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
 
 #define LOG_FMT_DEBUG(logger, fmt, ...) LOG_FMT(logger, atpdxy::LogLevel::DEBUG, fmt, __VA_ARGS__)
 #define LOG_FMT_INFO(logger, fmt, ...) LOG_FMT(logger, atpdxy::LogLevel::INFO, fmt, __VA_ARGS__)
@@ -86,7 +87,10 @@ public:
     typedef  std::shared_ptr<LogEvent> ptr;
 
     // 构造函数，对日志事件进行初始化
-    LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const char* file, int32_t line, uint32_t elapse, uint32_t threadId, uint32_t fiberId, uint64_t time);
+    LogEvent(std::shared_ptr<Logger> logger, 
+        LogLevel::Level level, const char* file, int32_t line,
+        uint32_t elapse, uint32_t threadId, uint32_t fiberId, 
+        uint64_t time, const std::string& thread_name);
 
     // 返回私有变量 
     const char* getFile() const { return m_file; }
@@ -104,7 +108,8 @@ public:
     void format(const char* fmt, ...);
     void format(const char* fmt, va_list al);
 
-    // const std::string& getThreadName() const { return "root"; }
+    // 返回线程名称
+    const std::string& getThreadName() const { return m_threadName; }
 private:
     // 文件名
     const char* m_file = nullptr;
@@ -132,6 +137,9 @@ private:
 
     // 日志事件级别
     LogLevel::Level m_level;
+
+    // 线程名称
+    std::string m_threadName;
 };
 
 // 日志包装器，实现RAII

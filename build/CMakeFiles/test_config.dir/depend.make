@@ -5,6 +5,7 @@ CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../atpdxy/config.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../atpdxy/log.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../atpdxy/mutex.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../atpdxy/singleton.h
+CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../atpdxy/thread.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../atpdxy/util.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: ../tests/test_config.cpp
 
