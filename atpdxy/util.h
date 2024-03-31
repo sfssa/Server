@@ -11,18 +11,22 @@
 
 namespace atpdxy
 {
-// 获取当前线程id
+// 返回当前线程的ID
 pid_t GetThreadId();
 
-// 获取当前协程id
+// 返回当前协程的ID
 uint32_t GetFiberId();
 
-// 获取调用栈信息
+// 获取当前的调用栈信息
 void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);
 
-// 将调用栈的信息转换成string字符串
+// 获取当前栈信息的字符串
 std::string BacktraceToString(int size = 64, int skip = 2, const std::string& prefix = "");
 
-// 辅助函数，解析符号名并反编译
-std::string demangle(const char* symbol);
+// 返回变量T的类型名称
+template<class T>
+const char* TypeToName() {
+    static const char* s_name = abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, nullptr);
+    return s_name;
+}
 }

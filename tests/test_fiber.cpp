@@ -1,43 +1,38 @@
-#include "../atpdxy/fiber.h"
 #include "../atpdxy/atpdxy.h"
 
-atpdxy::Logger::ptr g_logger = LOG_ROOT();
+atpdxy::Logger::ptr g_logger = GET_ROOT_LOGGER();
 
-void run_in_fiber()
-{
-    LOG_INFO(g_logger) << "run in fiber begin";
+void run_in_fiber() {
+    INFO(g_logger) << "run_in_fiber begin";
     atpdxy::Fiber::YieldToHold();
-    LOG_INFO(g_logger) << "run in fiber end";
+    INFO(g_logger) << "run_in_fiber end";
     atpdxy::Fiber::YieldToHold();
 }
 
-void test_fiber()
-{
-    LOG_INFO(g_logger) << "main begin -1";
+void test_fiber() {
+    INFO(g_logger) << "main begin -1";
     {
         atpdxy::Fiber::GetThis();
-        LOG_INFO(g_logger) << "main begin";
+        INFO(g_logger) << "main begin";
         atpdxy::Fiber::ptr fiber(new atpdxy::Fiber(run_in_fiber));
         fiber->swapIn();
-        LOG_INFO(g_logger) << "main after swapIn";
+        INFO(g_logger) << "main after swapIn";
         fiber->swapIn();
-        LOG_INFO(g_logger) << "main after end";
+        INFO(g_logger) << "main after end";
         fiber->swapIn();
     }
-    LOG_INFO(g_logger) << "main after end2";
+    INFO(g_logger) << "main after end2";
 }
 
-int main()
-{
+int main(int argc, char** argv) {
     atpdxy::Thread::SetName("main");
-    std::vector<atpdxy::Thread::ptr> thrs;
-    for(int i = 0; i < 3; ++i)
-    {
-        thrs.push_back(atpdxy::Thread::ptr(new atpdxy::Thread(&test_fiber, "name_" + std::to_string(i))));
-    }
 
-    for(auto i : thrs)
-    {
+    std::vector<atpdxy::Thread::ptr> thrs;
+    for(int i = 0; i < 3; ++i) {
+        thrs.push_back(atpdxy::Thread::ptr(
+            new atpdxy::Thread(&test_fiber, "name_" + std::to_string(i))));
+    }
+    for(auto i : thrs) {
         i->join();
     }
     return 0;

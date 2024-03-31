@@ -22,6 +22,8 @@ set(LIB_SRC
     atpdxy/thread.cpp
     atpdxy/mutex.cpp
     atpdxy/fiber.cpp
+    atpdxy/scheduler.cpp
+    atpdxy/iomanager.cpp
     )
 
 # 创建共享库
@@ -61,6 +63,16 @@ add_executable(test_fiber ${PROJECT_SOURCE_DIR}/tests/test_fiber.cpp)
 add_dependencies(test_fiber ${PROJECT_NAME})
 force_redefine_file_macro_for_sources(test_fiber)
 target_link_libraries(test_fiber ${LIB_LIB})
+
+add_executable(test_scheduler ${PROJECT_SOURCE_DIR}/tests/test_scheduler.cpp)
+add_dependencies(test_scheduler ${PROJECT_NAME})
+force_redefine_file_macro_for_sources(test_scheduler)
+target_link_libraries(test_scheduler ${LIB_LIB})
+
+add_executable(test_iomanager ${PROJECT_SOURCE_DIR}/tests/test_iomanager.cpp)
+add_dependencies(test_iomanager ${PROJECT_NAME})
+force_redefine_file_macro_for_sources(test_iomanager)
+target_link_libraries(test_iomanager ${LIB_LIB})
 
 # 指定输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

@@ -1,25 +1,21 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/atpdxy/Github/Server/atpdxy/config.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o"
-  "/home/atpdxy/Github/Server/atpdxy/fiber.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o"
-  "/home/atpdxy/Github/Server/atpdxy/log.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o"
-  "/home/atpdxy/Github/Server/atpdxy/mutex.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/mutex.cpp.o"
-  "/home/atpdxy/Github/Server/atpdxy/thread.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o"
-  "/home/atpdxy/Github/Server/atpdxy/util.cpp" "/home/atpdxy/Github/Server/build/CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "atpdxy_EXPORTS"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/atpdxy/GitHub/Server/atpdxy/config.cpp" "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/config.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/fiber.cpp" "CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/iomanager.cpp" "CMakeFiles/atpdxy.dir/atpdxy/iomanager.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/iomanager.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/log.cpp" "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/mutex.cpp" "CMakeFiles/atpdxy.dir/atpdxy/mutex.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/mutex.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/scheduler.cpp" "CMakeFiles/atpdxy.dir/atpdxy/scheduler.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/scheduler.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/thread.cpp" "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o.d"
+  "/home/atpdxy/GitHub/Server/atpdxy/util.cpp" "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o" "gcc" "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o.d"
   )
 
 # Targets to which this target links.

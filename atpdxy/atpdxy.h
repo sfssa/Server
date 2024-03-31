@@ -7,3 +7,5 @@
 #include "mutex.h"
 #include "macro.h"
 #include "util.h"
+#include "fiber.h"
+#include "scheduler.h"

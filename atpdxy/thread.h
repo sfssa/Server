@@ -1,73 +1,52 @@
-/*
- * @Author: sfssa 1664549131@qq.com
- * @Date: 2024-03-11 17:02:43
- * @LastEditors: sfssa 1664549131@qq.com
- * @LastEditTime: 2024-03-11 17:12:58
- * @FilePath: \projects\C++\thread.h
- * @Description: Do not edit
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
- */
 #pragma once
-
-#include <thread>
-#include <functional>
-#include <memory>
 #include <string>
-#include <pthread.h>
 #include "mutex.h"
+#include "noncopyable.h"
 
-namespace atpdxy
-{
-class Thread
-{
+namespace atpdxy {
+
+// 线程类封装
+class Thread : Noncopyable {
 public:
-    // 线程的智能指针
+    // 线程智能指针类型
     typedef std::shared_ptr<Thread> ptr;
 
-    // 构造函数，接受一个回调函数和线程名
+    // 构造函数，设置线程执行任务和线程名称
     Thread(std::function<void()> cb, const std::string& name);
 
-    // 析构函数
     ~Thread();
 
-    // 返回pid
-    pid_t getId() const { return m_id; }
+    // 返回线程id
+    pid_t getId() const { return m_id;}
 
     // 返回线程名称
-    const std::string getName() const { return m_name; }
+    const std::string& getName() const { return m_name;}
 
-    // 等待回收资源
+    // 主线程等待线程执行完毕回收资源
     void join();
 
-    // 返回当前正在执行的线程
+    // 获取当前正在执行的线程指针
     static Thread* GetThis();
 
-    // 返回当前线程名称（为日志服务）
+    // 获取当前正在执行的线程名称
     static const std::string& GetName();
 
-    // 设置线程名称
+    // 设置当前正在执行线程的名称
     static void SetName(const std::string& name);
 private:
-    // 避免线程被拷贝
-    Thread(const Thread&) = delete;
-    Thread(const Thread&&) = delete;
-    Thread& operator=(const Thread&) = delete;
+    // 线程内部执行函数
     static void* run(void* arg);
 private:
-    // 线程标识符：线程的id
+    // 线程id
     pid_t m_id = -1;
-
-    // 线程控制块指针
+    // 线程结构
     pthread_t m_thread = 0;
-    
-    // 回调函数
+    // 线程执行函数
     std::function<void()> m_cb;
-
-    // 线程名
+    // 线程名称
     std::string m_name;
-
     // 信号量
     Semaphore m_semaphore;
 };
+
 }
