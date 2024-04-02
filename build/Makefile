@@ -436,6 +436,30 @@ atpdxy/thread.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.s
 .PHONY : atpdxy/thread.cpp.s
 
+atpdxy/timer.o: atpdxy/timer.cpp.o
+.PHONY : atpdxy/timer.o
+
+# target to build an object file
+atpdxy/timer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o
+.PHONY : atpdxy/timer.cpp.o
+
+atpdxy/timer.i: atpdxy/timer.cpp.i
+.PHONY : atpdxy/timer.i
+
+# target to preprocess a source file
+atpdxy/timer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.i
+.PHONY : atpdxy/timer.cpp.i
+
+atpdxy/timer.s: atpdxy/timer.cpp.s
+.PHONY : atpdxy/timer.s
+
+# target to generate assembly for a file
+atpdxy/timer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.s
+.PHONY : atpdxy/timer.cpp.s
+
 atpdxy/util.o: atpdxy/util.cpp.o
 .PHONY : atpdxy/util.o
 
@@ -669,6 +693,9 @@ help:
 	@echo "... atpdxy/thread.o"
 	@echo "... atpdxy/thread.i"
 	@echo "... atpdxy/thread.s"
+	@echo "... atpdxy/timer.o"
+	@echo "... atpdxy/timer.i"
+	@echo "... atpdxy/timer.s"
 	@echo "... atpdxy/util.o"
 	@echo "... atpdxy/util.i"
 	@echo "... atpdxy/util.s"

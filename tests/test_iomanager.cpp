@@ -42,7 +42,21 @@ void test1() {
     iom.schedule(&test_fiber);
 }
 
+atpdxy::Timer::ptr s_timer;
+void testTimer() {
+    atpdxy::IOManager iom(2);
+    s_timer = iom.addTimer(1000, [](){
+        static int i = 0;
+        INFO(g_logger) << "hello timer i = " << i;
+         if(++i == 3) {
+            //s_timer->reset(2000, true);
+            s_timer->cancel();
+         }
+    }, true);
+}
+
 int main() {
-    test1();
+    // test1();
+    testTimer();
     return 0;
 }

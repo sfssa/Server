@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/atpdxy.dir/atpdxy/scheduler.cpp.o.d"
   "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o"
   "CMakeFiles/atpdxy.dir/atpdxy/thread.cpp.o.d"
+  "CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o"
+  "CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o.d"
   "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o"
   "CMakeFiles/atpdxy.dir/atpdxy/util.cpp.o.d"
 )

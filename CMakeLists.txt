@@ -24,6 +24,7 @@ set(LIB_SRC
     atpdxy/fiber.cpp
     atpdxy/scheduler.cpp
     atpdxy/iomanager.cpp
+    atpdxy/timer.cpp
     )
 
 # 创建共享库

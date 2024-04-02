@@ -6,6 +6,7 @@
 #include <execinfo.h>
 #include <string>
 #include <stdint.h>
+#include <sys/time.h>
 #include <cxxabi.h>
 #include "log.h"
 
@@ -29,4 +30,10 @@ const char* TypeToName() {
     static const char* s_name = abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, nullptr);
     return s_name;
 }
+
+// 返回毫秒级时间
+uint64_t GetCurrentMS();
+
+// 返回微秒级时间
+uint64_t GetCurrentUS();
 }

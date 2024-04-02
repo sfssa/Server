@@ -1,9 +1,10 @@
 #pragma once
 
 #include "scheduler.h"
+#include "timer.h"
 
 namespace atpdxy {
-class IOManager : public Scheduler {
+class IOManager : public Scheduler, public TimerManager {
 public:
     typedef RWMutex RWMutexType;
     typedef std::shared_ptr<IOManager> ptr;
@@ -85,6 +86,9 @@ protected:
 
     // 重置句柄上下文容器大小
     void contextResize(size_t size);
+
+    // 有新的定时器插入到set中需要唤醒
+    void onTimerInsertedAtFront() override;
 
     // 是否可以停止，timeout是最近要触发的定时器事件间隔
     bool stopping(uint64_t& timeout);

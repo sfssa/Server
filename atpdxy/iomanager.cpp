@@ -318,48 +318,70 @@ void IOManager::tickle() {
 // 停止调度器的执行
 bool IOManager::stopping() {
     uint64_t timeout = 0;
-    ;return stopping(timeout);
+    return stopping(timeout);
 }
 
 // 调度器没有任务时执行idle
 void IOManager::idle() {
+    DEBUG(g_logger) << "idle";
+    const uint64_t MAX_EVNETS = 256;
     // 后面的括号是为了初始化，默认0
-    epoll_event* events = new epoll_event[64]();
+    epoll_event* events = new epoll_event[MAX_EVNETS]();
     // 只能指针，指定析构函数，创建一个shared_events智能指针，该指针的析构函数由lambda表达式给出
     std::shared_ptr<epoll_event> shared_events(events, [](epoll_event* ptr){
         delete[] ptr;
     });
+
     while(true) {
-        if(stopping()) {
+        uint64_t next_timeout = 0;
+        if(UNLIKELY(stopping(next_timeout))) {
             INFO(g_logger) << "name=" << getName() << " idle stopping exit";
             break;
         }
+
         int rt = 0;
         do {
-            static const int MAX_TIMEOUT = 5000;
-            // 等待事件发生，最多5秒返回
-            rt = epoll_wait(m_epfd, events, 64, MAX_TIMEOUT);
+            // 等待事件发生，最多3秒返回
+            static const int MAX_TIMEOUT = 3000;
+            if(next_timeout != ~0ull) {
+                next_timeout = (int)next_timeout > MAX_TIMEOUT ? MAX_TIMEOUT : next_timeout;
+            } else {
+                next_timeout = MAX_TIMEOUT;
+            }
+            rt = epoll_wait(m_epfd, events, MAX_EVNETS, (int)next_timeout);
             if(rt < 0 && errno == EINTR) {
                 // 被中断信号打断，重新调用epoll_wait等待事件
             } else {
                 break;
             }
         } while(true);
-        
+
+        std::vector<std::function<void()> > cbs;
+        listExpiredCb(cbs);
+        if(!cbs.empty()) {
+            //SYLAR_LOG_DEBUG(g_logger) << "on timer cbs.size=" << cbs.size();
+            schedule(cbs.begin(), cbs.end());
+            cbs.clear();
+        }
+
+        //if(SYLAR_UNLIKELY(rt == MAX_EVNETS)) {
+        //    SYLAR_LOG_INFO(g_logger) << "epoll wait events=" << rt;
+        //}
         // 遍历监听到的事件处理
         for(int i = 0; i < rt; ++i) {
             epoll_event& event = events[i];
-            // 管道的写端写了数据
             if(event.data.fd == m_tickleFds[0]) {
-                uint64_t dummy;
-                while(read(m_tickleFds[0], &dummy, 1) == 1);
+                // 管道的写端写了数据
+                uint8_t dummy[256];
+                while(read(m_tickleFds[0], dummy, sizeof(dummy)) > 0);
                 continue;
             }
+
             FdContext* fd_ctx = (FdContext*)event.data.ptr;
             FdContext::MutexType::Lock lock(fd_ctx->mutex);
-            // 如果当前事件是可读或挂起，则修改为同时监听可读和可写
-            if(event.events & (EPOLLIN | EPOLLHUP)) {
-                event.events |= EPOLLIN | EPOLLOUT;
+            if(event.events & (EPOLLERR | EPOLLHUP)) {
+                // 如果当前事件是可读或挂起，则修改为同时监听可读和可写
+                event.events |= (EPOLLIN | EPOLLOUT) & fd_ctx->events;
             }
             // 根据当前事件的类型，转换成实际的事件类型
             int real_events = NONE;
@@ -369,15 +391,15 @@ void IOManager::idle() {
             if(event.events & EPOLLOUT) {
                 real_events |= WRITE;
             }
-            // 没有待处理的事件
+
             if((fd_ctx->events & real_events) == NONE) {
                 continue;
             }
-            // 剩余事件                                                         
-            int left_events = (fd_ctx->events & ~real_events);      
             // 如果剩余事件不为空，则需要修改，否则表示不需要继续监听
+            int left_events = (fd_ctx->events & ~real_events);
             int op = left_events ? EPOLL_CTL_MOD : EPOLL_CTL_DEL;
             event.events = EPOLLET | left_events;
+
             int rt2 = epoll_ctl(m_epfd, op, fd_ctx->fd, &event);
             if(rt2) {
                 ERROR(g_logger) << "epoll_ctl(" << m_epfd << ", "
@@ -385,20 +407,23 @@ void IOManager::idle() {
                     << rt2 << " (" << errno << ") (" << strerror(errno) << ")";
                 continue;
             }
+
+            //SYLAR_LOG_INFO(g_logger) << " fd=" << fd_ctx->fd << " events=" << fd_ctx->events
+            //                         << " real_events=" << real_events;
             if(real_events & READ) {
                 fd_ctx->triggerEvent(READ);
                 --m_pendingEventCount;
             }
-
             if(real_events & WRITE) {
                 fd_ctx->triggerEvent(WRITE);
                 --m_pendingEventCount;
             }
         }
-        // 将控制权让出去
+        // 让出控制权
         Fiber::ptr cur = Fiber::GetThis();
         auto raw_ptr = cur.get();
         cur.reset();
+
         raw_ptr->swapOut();
     }
 }
@@ -418,11 +443,14 @@ void IOManager::contextResize(size_t size) {
 // 是否可以停止，timeout是最近要触发的定时器事件间隔
 bool IOManager::stopping(uint64_t& timeout) {
     // 获取下一个定时器的超时时间，如果为~0ull（uint64_t最大值）表示没有定时器，定时器队列为空
-    // timeout = getNextTimer();
-    // return timeout == ~0ull
-    //     && m_pendingEventCount == 0
-    //     && Scheduler::stopping();
-    return Scheduler::stopping() && m_pendingEventCount == 0;
+    timeout = getNextTimer();
+    return timeout == ~0ull
+        && m_pendingEventCount == 0
+        && Scheduler::stopping();
+}
+
+void IOManager::onTimerInsertedAtFront() {
+    tickle();
 }
 }
 

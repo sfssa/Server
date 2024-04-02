@@ -242,6 +242,7 @@ CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../tests/test_log.cpp \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
   /usr/include/execinfo.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/c++/11/cxxabi.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/cxxabi_tweaks.h \
   ../atpdxy/singleton.h \
@@ -777,6 +778,8 @@ CMakeFiles/test_log.dir/tests/test_log.cpp.o: ../tests/test_log.cpp \
 /usr/include/x86_64-linux-gnu/bits/unistd.h:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/x86_64-linux-gnu/sys/time.h:
 
 /usr/include/c++/11/cxxabi.h:
 
