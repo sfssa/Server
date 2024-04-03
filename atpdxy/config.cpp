@@ -15,9 +15,8 @@ ConfigVarBase::ptr Config::LookupBase(const std::string& name) {
     return it == GetDatas().end() ? nullptr : it->second;
 }
 
-static void ListAllMember(const std::string& prefix,
-                          const YAML::Node& node,
-                          std::list<std::pair<std::string, const YAML::Node> >& output) {
+static void ListAllMember(const std::string& prefix, const YAML::Node& node,
+    std::list<std::pair<std::string, const YAML::Node> >& output) {
     if(prefix.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._012345678")
             != std::string::npos) {
         ERROR(g_logger) << "Config invalid name: " << prefix << " : " << node;

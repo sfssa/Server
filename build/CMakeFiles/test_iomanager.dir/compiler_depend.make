@@ -768,10 +768,25 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
   /usr/include/c++/11/bits/unordered_set.h \
   ../atpdxy/macro.h \
   ../atpdxy/scheduler.h \
-  ../atpdxy/iomanager.h \
-  ../atpdxy/timer.h \
-  /usr/include/x86_64-linux-gnu/sys/socket.h \
+  ../atpdxy/hook.h \
+  /usr/include/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl2.h \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/x86_64-linux-gnu/sys/socket.h \
   /usr/include/x86_64-linux-gnu/bits/socket.h \
   /usr/include/x86_64-linux-gnu/bits/socket_type.h \
   /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
@@ -788,27 +803,18 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
   /usr/include/asm-generic/sockios.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
   /usr/include/x86_64-linux-gnu/bits/socket2.h \
+  ../atpdxy/iomanager.h \
+  ../atpdxy/timer.h \
   /usr/include/arpa/inet.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/in.h \
-  /usr/include/fcntl.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
-  /usr/include/linux/falloc.h \
-  /usr/include/x86_64-linux-gnu/bits/stat.h \
-  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl2.h \
   /usr/include/x86_64-linux-gnu/sys/epoll.h \
   /usr/include/x86_64-linux-gnu/bits/epoll.h
 
 
 /usr/include/x86_64-linux-gnu/sys/epoll.h:
 
-/usr/include/x86_64-linux-gnu/bits/fcntl2.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
-
-/usr/include/fcntl.h:
+../atpdxy/iomanager.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket2.h:
 
@@ -818,8 +824,6 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
-/usr/include/asm-generic/posix_types.h:
-
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
 /usr/include/linux/stddef.h:
@@ -828,7 +832,23 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 
 /usr/include/x86_64-linux-gnu/sys/socket.h:
 
-../atpdxy/iomanager.h:
+/usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
+
+/usr/include/x86_64-linux-gnu/asm/ioctl.h:
+
+/usr/include/linux/ioctl.h:
+
+/usr/include/asm-generic/ioctls.h:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/x86_64-linux-gnu/sys/ioctl.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl2.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
+
+/usr/include/fcntl.h:
 
 ../atpdxy/macro.h:
 
@@ -908,6 +928,8 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 
 /usr/local/include/boost/swap.hpp:
 
+/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
+
 /usr/local/include/boost/array.hpp:
 
 /usr/local/include/boost/lexical_cast/detail/widest_char.hpp:
@@ -933,6 +955,8 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+../atpdxy/hook.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
@@ -1149,6 +1173,8 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/c++/11/cctype:
+
+/usr/include/asm-generic/ioctl.h:
 
 /usr/local/include/yaml-cpp/node/detail/node_data.h:
 
@@ -1485,6 +1511,8 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/ioctls.h:
 
 /usr/local/include/boost/preprocessor/seq/seq.hpp:
 
@@ -2145,6 +2173,8 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o: ../tests/test_iomanage
 /usr/local/include/boost/preprocessor/logical/bitor.hpp:
 
 /usr/local/include/boost/preprocessor/facilities/overload.hpp:
+
+/usr/include/x86_64-linux-gnu/asm/ioctls.h:
 
 /usr/local/include/boost/preprocessor/facilities/check_empty.hpp:
 

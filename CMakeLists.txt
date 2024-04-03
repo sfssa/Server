@@ -25,6 +25,8 @@ set(LIB_SRC
     atpdxy/scheduler.cpp
     atpdxy/iomanager.cpp
     atpdxy/timer.cpp
+    atpdxy/hook.cpp
+    atpdxy/fd_manager.cpp
     )
 
 # 创建共享库
@@ -74,6 +76,11 @@ add_executable(test_iomanager ${PROJECT_SOURCE_DIR}/tests/test_iomanager.cpp)
 add_dependencies(test_iomanager ${PROJECT_NAME})
 force_redefine_file_macro_for_sources(test_iomanager)
 target_link_libraries(test_iomanager ${LIB_LIB})
+
+add_executable(test_hook ${PROJECT_SOURCE_DIR}/tests/test_hook.cpp)
+add_dependencies(test_hook ${PROJECT_NAME})
+force_redefine_file_macro_for_sources(test_hook)
+target_link_libraries(test_hook ${LIB_LIB})
 
 # 指定输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

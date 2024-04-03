@@ -55,7 +55,7 @@ public:
     Timer::ptr addTimer(uint64_t ms, std::function<void()> cb, bool recurring = false);
     
     // 添加定时器加上环境依赖
-    Timer::ptr addCondtionTimer(uint64_t ms, std::function<void()> cb, std::weak_ptr<void> weak_cond, bool recurring = false);
+    Timer::ptr addConditionTimer(uint64_t ms, std::function<void()> cb, std::weak_ptr<void> weak_cond, bool recurring = false);
 
     // 到最近一个定时器的时间差
     uint64_t getNextTimer();

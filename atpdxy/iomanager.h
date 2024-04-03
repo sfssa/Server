@@ -61,7 +61,7 @@ public:
     ~IOManager();
 
     // 向fd添加事件
-    int addEvent(int fd, Event event, std::function<void()> cb);
+    int addEvent(int fd, Event event, std::function<void()> cb = nullptr);
 
     // 向fd删除事件
     bool delEvent(int fd, Event event);

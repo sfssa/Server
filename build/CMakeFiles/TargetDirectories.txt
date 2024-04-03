@@ -6,6 +6,7 @@
 /home/atpdxy/GitHub/Server/build/CMakeFiles/test_fiber.dir
 /home/atpdxy/GitHub/Server/build/CMakeFiles/test_scheduler.dir
 /home/atpdxy/GitHub/Server/build/CMakeFiles/test_iomanager.dir
+/home/atpdxy/GitHub/Server/build/CMakeFiles/test_hook.dir
 /home/atpdxy/GitHub/Server/build/CMakeFiles/edit_cache.dir
 /home/atpdxy/GitHub/Server/build/CMakeFiles/rebuild_cache.dir
 /home/atpdxy/GitHub/Server/build/CMakeFiles/list_install_components.dir

@@ -198,6 +198,34 @@ CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/timer.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/timer.cpp -o CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.s
 
+CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o: CMakeFiles/atpdxy.dir/flags.make
+CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o: ../atpdxy/hook.cpp
+CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o: CMakeFiles/atpdxy.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/hook.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/hook.cpp
+
+CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/hook.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/hook.cpp > CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.i
+
+CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/hook.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/hook.cpp -o CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.s
+
+CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o: CMakeFiles/atpdxy.dir/flags.make
+CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o: ../atpdxy/fd_manager.cpp
+CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o: CMakeFiles/atpdxy.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/fd_manager.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o -MF CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o.d -o CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o -c /home/atpdxy/GitHub/Server/atpdxy/fd_manager.cpp
+
+CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/fd_manager.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/atpdxy/GitHub/Server/atpdxy/fd_manager.cpp > CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.i
+
+CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"atpdxy/fd_manager.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/atpdxy/GitHub/Server/atpdxy/fd_manager.cpp -o CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.s
+
 # Object files for target atpdxy
 atpdxy_OBJECTS = \
 "CMakeFiles/atpdxy.dir/atpdxy/log.cpp.o" \
@@ -208,7 +236,9 @@ atpdxy_OBJECTS = \
 "CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.o" \
 "CMakeFiles/atpdxy.dir/atpdxy/scheduler.cpp.o" \
 "CMakeFiles/atpdxy.dir/atpdxy/iomanager.cpp.o" \
-"CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o"
+"CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o" \
+"CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o" \
+"CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o"
 
 # External object files for target atpdxy
 atpdxy_EXTERNAL_OBJECTS =
@@ -222,9 +252,11 @@ atpdxy_EXTERNAL_OBJECTS =
 ../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/atpdxy/scheduler.cpp.o
 ../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/atpdxy/iomanager.cpp.o
 ../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o
+../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o
+../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o
 ../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/build.make
 ../lib/libatpdxy.so: CMakeFiles/atpdxy.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library ../lib/libatpdxy.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/atpdxy/GitHub/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library ../lib/libatpdxy.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/atpdxy.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

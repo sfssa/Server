@@ -767,8 +767,77 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
   ../atpdxy/macro.h \
-  ../atpdxy/scheduler.h
+  ../atpdxy/scheduler.h \
+  ../atpdxy/hook.h \
+  /usr/include/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl2.h \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/x86_64-linux-gnu/sys/socket.h \
+  /usr/include/x86_64-linux-gnu/bits/socket.h \
+  /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+  /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+  /usr/include/x86_64-linux-gnu/asm/socket.h \
+  /usr/include/asm-generic/socket.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+  /usr/include/asm-generic/posix_types.h \
+  /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/asm-generic/bitsperlong.h \
+  /usr/include/x86_64-linux-gnu/asm/sockios.h \
+  /usr/include/asm-generic/sockios.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+  /usr/include/x86_64-linux-gnu/bits/socket2.h
 
+
+/usr/include/x86_64-linux-gnu/bits/socket2.h:
+
+/usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
+
+/usr/include/x86_64-linux-gnu/asm/posix_types.h:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/linux/posix_types.h:
+
+/usr/include/x86_64-linux-gnu/sys/socket.h:
+
+/usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
+
+/usr/include/x86_64-linux-gnu/asm/ioctl.h:
+
+/usr/include/linux/ioctl.h:
+
+/usr/include/asm-generic/ioctls.h:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/x86_64-linux-gnu/sys/ioctl.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl2.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
+
+/usr/include/fcntl.h:
 
 ../atpdxy/macro.h:
 
@@ -848,6 +917,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/local/include/boost/swap.hpp:
 
+/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
+
 /usr/local/include/boost/array.hpp:
 
 /usr/local/include/boost/lexical_cast/detail/widest_char.hpp:
@@ -873,6 +944,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+../atpdxy/hook.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
@@ -1076,11 +1149,15 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
 
+/usr/include/x86_64-linux-gnu/bits/socket_type.h:
+
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/c++/11/cctype:
+
+/usr/include/asm-generic/ioctl.h:
 
 /usr/local/include/yaml-cpp/node/detail/node_data.h:
 
@@ -1278,7 +1355,11 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
+
 /usr/include/c++/11/bits/predefined_ops.h:
+
+/usr/include/asm-generic/sockios.h:
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
@@ -1306,6 +1387,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
 /usr/include/x86_64-linux-gnu/asm/unistd_64.h:
 
 /usr/local/include/boost/mpl/bool.hpp:
@@ -1313,6 +1396,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 /usr/local/include/boost/mpl/limits/arity.hpp:
 
 /usr/local/include/boost/type_traits/add_lvalue_reference.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/struct_stat.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
@@ -1386,6 +1471,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/include/c++/11/cstdint:
 
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 /usr/include/ctype.h:
@@ -1416,6 +1503,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
+/usr/include/x86_64-linux-gnu/bits/ioctls.h:
+
 /usr/local/include/boost/preprocessor/seq/seq.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
@@ -1423,6 +1512,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 /usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp:
 
 /usr/local/include/boost/preprocessor/array/size.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
@@ -1486,6 +1577,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
+/usr/include/x86_64-linux-gnu/asm/socket.h:
+
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
@@ -1507,6 +1600,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 /usr/include/c++/11/bits/ostream_insert.h:
 
 /usr/local/include/boost/iterator/detail/enable_if.hpp:
+
+/usr/include/linux/falloc.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
@@ -1700,6 +1795,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/local/include/boost/mpl/int_fwd.hpp:
 
+/usr/include/asm-generic/socket.h:
+
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/local/include/boost/type_traits/remove_pointer.hpp:
@@ -1788,6 +1885,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/local/include/boost/preprocessor/comparison/limits/not_equal_256.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
+
 /usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
 /usr/local/include/boost/preprocessor/logical/bitand.hpp:
@@ -1865,6 +1964,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 /usr/local/include/boost/mpl/aux_/config/workaround.hpp:
 
 /usr/local/include/boost/mpl/aux_/config/pp_counter.hpp:
+
+/usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
 /usr/local/include/boost/mpl/apply.hpp:
 
@@ -2054,6 +2155,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 
 /usr/local/include/boost/preprocessor/facilities/overload.hpp:
 
+/usr/include/x86_64-linux-gnu/asm/ioctls.h:
+
 /usr/local/include/boost/preprocessor/facilities/check_empty.hpp:
 
 /usr/local/include/boost/preprocessor/arithmetic/detail/is_1_number.hpp:
@@ -2189,6 +2292,8 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: ../tests/test_fiber.cpp \
 /usr/local/include/boost/mpl/eval_if.hpp:
 
 /usr/local/include/boost/core/addressof.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/socket.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 

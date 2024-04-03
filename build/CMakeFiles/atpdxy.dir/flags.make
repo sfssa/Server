@@ -26,3 +26,7 @@ CXX_FLAGS =  -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unus
 
 # Custom defines: CMakeFiles/atpdxy.dir/atpdxy/timer.cpp.o_DEFINES = __FILE__="atpdxy/timer.cpp"
 
+# Custom defines: CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o_DEFINES = __FILE__="atpdxy/hook.cpp"
+
+# Custom defines: CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o_DEFINES = __FILE__="atpdxy/fd_manager.cpp"
+

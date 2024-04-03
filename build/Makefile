@@ -268,6 +268,19 @@ test_iomanager/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/build
 .PHONY : test_iomanager/fast
 
+#=============================================================================
+# Target rules for targets named test_hook
+
+# Build rule for target.
+test_hook: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_hook
+.PHONY : test_hook
+
+# fast build rule for target.
+test_hook/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/build
+.PHONY : test_hook/fast
+
 atpdxy/config.o: atpdxy/config.cpp.o
 .PHONY : atpdxy/config.o
 
@@ -292,6 +305,30 @@ atpdxy/config.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/config.cpp.s
 .PHONY : atpdxy/config.cpp.s
 
+atpdxy/fd_manager.o: atpdxy/fd_manager.cpp.o
+.PHONY : atpdxy/fd_manager.o
+
+# target to build an object file
+atpdxy/fd_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.o
+.PHONY : atpdxy/fd_manager.cpp.o
+
+atpdxy/fd_manager.i: atpdxy/fd_manager.cpp.i
+.PHONY : atpdxy/fd_manager.i
+
+# target to preprocess a source file
+atpdxy/fd_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.i
+.PHONY : atpdxy/fd_manager.cpp.i
+
+atpdxy/fd_manager.s: atpdxy/fd_manager.cpp.s
+.PHONY : atpdxy/fd_manager.s
+
+# target to generate assembly for a file
+atpdxy/fd_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/fd_manager.cpp.s
+.PHONY : atpdxy/fd_manager.cpp.s
+
 atpdxy/fiber.o: atpdxy/fiber.cpp.o
 .PHONY : atpdxy/fiber.o
 
@@ -315,6 +352,30 @@ atpdxy/fiber.s: atpdxy/fiber.cpp.s
 atpdxy/fiber.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/fiber.cpp.s
 .PHONY : atpdxy/fiber.cpp.s
+
+atpdxy/hook.o: atpdxy/hook.cpp.o
+.PHONY : atpdxy/hook.o
+
+# target to build an object file
+atpdxy/hook.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.o
+.PHONY : atpdxy/hook.cpp.o
+
+atpdxy/hook.i: atpdxy/hook.cpp.i
+.PHONY : atpdxy/hook.i
+
+# target to preprocess a source file
+atpdxy/hook.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.i
+.PHONY : atpdxy/hook.cpp.i
+
+atpdxy/hook.s: atpdxy/hook.cpp.s
+.PHONY : atpdxy/hook.s
+
+# target to generate assembly for a file
+atpdxy/hook.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atpdxy.dir/build.make CMakeFiles/atpdxy.dir/atpdxy/hook.cpp.s
+.PHONY : atpdxy/hook.cpp.s
 
 atpdxy/iomanager.o: atpdxy/iomanager.cpp.o
 .PHONY : atpdxy/iomanager.o
@@ -532,6 +593,30 @@ tests/test_fiber.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.s
 .PHONY : tests/test_fiber.cpp.s
 
+tests/test_hook.o: tests/test_hook.cpp.o
+.PHONY : tests/test_hook.o
+
+# target to build an object file
+tests/test_hook.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cpp.o
+.PHONY : tests/test_hook.cpp.o
+
+tests/test_hook.i: tests/test_hook.cpp.i
+.PHONY : tests/test_hook.i
+
+# target to preprocess a source file
+tests/test_hook.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cpp.i
+.PHONY : tests/test_hook.cpp.i
+
+tests/test_hook.s: tests/test_hook.cpp.s
+.PHONY : tests/test_hook.s
+
+# target to generate assembly for a file
+tests/test_hook.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cpp.s
+.PHONY : tests/test_hook.cpp.s
+
 tests/test_iomanager.o: tests/test_iomanager.cpp.o
 .PHONY : tests/test_iomanager.o
 
@@ -667,6 +752,7 @@ help:
 	@echo "... atpdxy"
 	@echo "... test_config"
 	@echo "... test_fiber"
+	@echo "... test_hook"
 	@echo "... test_iomanager"
 	@echo "... test_log"
 	@echo "... test_scheduler"
@@ -675,9 +761,15 @@ help:
 	@echo "... atpdxy/config.o"
 	@echo "... atpdxy/config.i"
 	@echo "... atpdxy/config.s"
+	@echo "... atpdxy/fd_manager.o"
+	@echo "... atpdxy/fd_manager.i"
+	@echo "... atpdxy/fd_manager.s"
 	@echo "... atpdxy/fiber.o"
 	@echo "... atpdxy/fiber.i"
 	@echo "... atpdxy/fiber.s"
+	@echo "... atpdxy/hook.o"
+	@echo "... atpdxy/hook.i"
+	@echo "... atpdxy/hook.s"
 	@echo "... atpdxy/iomanager.o"
 	@echo "... atpdxy/iomanager.i"
 	@echo "... atpdxy/iomanager.s"
@@ -705,6 +797,9 @@ help:
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"
+	@echo "... tests/test_hook.o"
+	@echo "... tests/test_hook.i"
+	@echo "... tests/test_hook.s"
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"

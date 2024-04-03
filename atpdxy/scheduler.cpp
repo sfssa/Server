@@ -128,17 +128,19 @@ void Scheduler::setThis() {
 
 void Scheduler::run() {
     DEBUG(g_logger) << m_name << " run";
+    set_hook_enable(true);
     setThis();
     // 非调用线程，设置每个线程内部的主协程
     if(atpdxy::GetThreadId() != m_rootThread) {
         t_scheduler_fiber = Fiber::GetThis().get();
     }
-
+    // 创建空闲协程和执行回调函数的协程
     Fiber::ptr idle_fiber(new Fiber(std::bind(&Scheduler::idle, this)));
     Fiber::ptr cb_fiber;
-
+    // 不断从队列中取出任务来执行
     FiberAndThread ft;
     while(true) {
+        // 选择一个要执行的协程或任务
         ft.reset();
         bool tickle_me = false;
         bool is_active = false;
@@ -146,6 +148,7 @@ void Scheduler::run() {
             MutexType::Lock lock(m_mutex);
             auto it = m_fibers.begin();
             while(it != m_fibers.end()) {
+                // 指定了执行的线程
                 if(it->thread != -1 && it->thread != atpdxy::GetThreadId()) {
                     ++it;
                     tickle_me = true;
@@ -166,11 +169,11 @@ void Scheduler::run() {
             }
             tickle_me |= it != m_fibers.end();
         }
-
+        // 需要唤醒线程执行
         if(tickle_me) {
             tickle();
         }
-
+        // 有要执行的协程：EXEC-执行；READY-调度；TERM/EXCEPT-设置HOLD
         if(ft.fiber && (ft.fiber->getState() != Fiber::TERM
                         && ft.fiber->getState() != Fiber::EXCEPT)) {
             ft.fiber->swapIn();
@@ -211,7 +214,7 @@ void Scheduler::run() {
                 INFO(g_logger) << "idle fiber term";
                 break;
             }
-
+            // 没有要执行的任务，执行idle协程
             ++m_idleThreadCount;
             idle_fiber->swapIn();
             --m_idleThreadCount;

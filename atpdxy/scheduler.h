@@ -4,6 +4,7 @@
 #include <vector>
 #include <list>
 #include <iostream>
+#include "hook.h"
 #include "fiber.h"
 #include "thread.h"
 
